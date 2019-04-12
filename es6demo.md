@@ -379,9 +379,42 @@ Promise:
 
 ```
 
+模块化：
 
+```javascript
+// import 
+		1、可以是相对路径也可以是绝对路径
+		2、import模块只会导入一次，无论你引入多少次
+		3、import './module/1.js'; 如果这么使用相当于引入文件
 
+			(1)export 导出对象 export导出的对象import导入必须加{}如果是export default导出的不用加{}
+				const a = 1
+				const b = 2
+				export {
+					a,
+					b
+				}
+			(2)import 引入导出的内容
+				import {a,b} from './module/1.js'
+				import * as modules from './module.1.js'
+		4、有提升效果，import会自动提升到顶部，首先执行
+		5、导出去的模块内容，如果里面有定时器更改，外面呢也会改动
+		6、import还可以动态加载模块 import() 返回值是一个promise对象
+			优点
+				1.按需加载
+				2.可以写在if中
+				3.路径也可以动态加载
+			import ('./module/1.js').then(res=> {
+				console.log('成功')
+			}).catch(err=> {
+				console.log('失败')
+			})
+		7、默认严格模式
+```
 
+类（class）和继承：
+
+​	
 
 
 
