@@ -227,6 +227,88 @@
 			}
 			console.log(jsones.showa())
 		// Object.is()用来比较两个值是否相等
+			console.log(Object.is(1,1))
+		// Object.assign(目标对象，source1.source2)复制一个对象，合并参数
+			let json1 = {a:1},json2 = {b:2},json3={c:3};
+			let objectass = Object.assign({},json1,json2,json3);
+			console.log(objectass);
+			let objarrass = ['apple','bannene','orange']
+			let abjarrsgin = Object.assign([],objarrass)
+			console.log(abjarrsgin)
+		// ...对象身上也可以使用
+			let jsondian = {a:1,b:2,c:3}
+			let jsondian1 = {...jsondian}
+			console.log(jsondian1)
+// promise
+		// Promise 解决异步回调问题
+		let apromise = 101
+		new Promise(function(resolve,reject){
+			// resolve成功调用
+			// reject失败调用
+			if (apromise === 10) {
+				resolve('成功了')
+			}else{
+				reject('失败了！')
+			}
+		}).then((res)=> {
+			console.log(res)
+		}).catch((err)=>{
+			console.log(err)
+		})
+		// Promise.resolve('aa')将现有的东西，转成一个promise对象，resolve状态，成功状态
+		let p1 = Promise.resolve('成功！')
+		p1.then(res=> {
+			console.log(res)
+		})
+		let p6 = Promise.resolve('成功！')
+		p6.then(res=> {
+			console.log(res)
+		})
+		// Promise.reject('aa')将现有的东西，转成一个promise对象，reject状态，失败状态
+		let p2 = Promise.reject('失败！')
+		p2.catch(res=> {
+			console.log(res)
+		})
+		// Promise.all([p1,p2])把promise打包，扔到一个数组里面，打包完还是一个promise对象，全部成功返回成功有一个失败就返回失败
+		Promise.all([p1,p6]).then((res)=> {
+			console.log(res)
+		}).catch((err)=> {
+			console.log(err)
+		})
+		// Promise.race([p1,p2])把promise打包扔到一个数组里面，打包完还是一个promise对象，第一个成功就返回成功第一个失败就返回失败
+		Promise.race([p2,p1,p6]).then((res)=> {
+			console.log(res)
+		}).catch((err)=> {
+			console.log(err)
+		})
+		// promise应用 获取登录状态和用户信息
+		let status = 1;
+		let userlogin = (resolve,reject)=>{
+			setTimeout(()=> {
+				if (status===1) {
+					resolve({data:'login success',state:0,token:'sjdnajndknasndkas'})
+				}else{
+					reject('失败1')
+				}
+			},2000)
+		}
+		let getuserinfo = (resolve,reject)=> {
+			setTimeout(()=> {
+				if (status===1) {
+					resolve({data:'getuser success1',state:01,token:'asdasdasdasdasd'})
+				}else{
+					reject('失败2')
+				}
+			},1000)
+		}
+		new Promise(userlogin).then((res)=>{
+			console.log('用户登录成功')
+			return new Promise(getuserinfo)
+		}).then(res=> {
+			console.log('获取用户信息成功')
+		})
+
+
 
 
 
