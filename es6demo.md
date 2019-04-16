@@ -1,16 +1,16 @@
 let定义：
 
-​	1、没有域解析，不纯在变量提升
+	1、没有域解析，不纯在变量提升
 
-​		在代码块内，只要let定义变量，在之前使用都是报错
+		在代码块内，只要let定义变量，在之前使用都是报错
 
-​		先定义在使用
+		先定义在使用
 
-​	2、同一个作用域里面，不能重复定义变量
+	2、同一个作用域里面，不能重复定义变量
 
 ​	3、for循环，for循环里面是父级作用域，里面又一个
 
-​	4、var声明的变量是属于window的let和const不是
+	4、var声明的变量是属于window的let和const不是
 
 ```javascript
 {
@@ -74,13 +74,13 @@ let [a,b,c] = [12,1,2];
 
 字符串模板：
 
-​	可以随意的换行`${data}`	
+	可以随意的换行`${data}`	
 
 字符串查找：
 
-​	indexof str.indexof(要找的东西)  返回值  索引的位置 没找到返回的-1
+	indexof str.indexof(要找的东西)  返回值  索引的位置 没找到返回的-1
 
-​	includes() str.includes(要找的东西)  返回值 true/false
+	includes() str.includes(要找的东西)  返回值 true/false
 
 ```javascript
 if (navigator.userAgent.includes('Chrome')) {
@@ -126,7 +126,7 @@ console.log(str5.padEnd(str5.length+startpad.length,startpad))
 
 函数：
 
-​	函数默认参数已经定义，不能在使用let或者const声明
+	函数默认参数已经定义，不能在使用let或者const声明
 
 默认值函数:
 
@@ -212,7 +212,7 @@ console.log(ns1.name)
 
 数组：
 
-​	循环：
+	循环：
 
 ```javascript
 // forEach
@@ -414,7 +414,174 @@ Promise:
 
 类（class）和继承：
 
-​	
+```javascript
+// 继承es5之前
+	function Person(name,age){
+		this.name = name
+		this.age = age
+	}
+	Person.prototype.showName = function(){
+		return `名字：${this.name}`
+	};
+	let pro1 = new Person('zhangsan',19)
+	console.log(pro1.showName())
+Object.assign(Person.prototype,{
+	showName1(){
+		return `my name is ${this.name}`
+	}
+})
+let pro2 = new Person('zhangsan',19)
+console.log(pro2.showName1())
+// class类的感念es6  
+// 没有提升功能必须定义之后再调用
+// es5里面有默认函数提升
+class Person2{
+	constructor(name,age) { //构造方法（函数）,调用new 自动执行
+		console.log(name,age)
+		this.name = name
+		this.age = age
+	}
+	showName3(){
+		return `名字为${this.name},年龄为${this.age}`
+	}
+}
+let pro3 = new Person2('lisi',99)
+console.log(pro3.showName3())
+// class里面this的指向问题 bind 规定重新指向问题
+/*
+	fn.call(this指向谁，args1，args2) 	  传递的不是数组
+	fn.apply(this指向谁，[ags1，args2]) 传递的是数组
+*/
+class Person3{
+	constructor(){
+		this.name = '新的aaa';
+		this.showName4 = this.showName4.bind(this)
+	}
+	showName4(){
+		return `新的名字为${this.name}`
+	}
+}
+let p3 = new Person3;
+let {showName4} = p3
+console.log(showName4())
+// class 新加的seter 和 geter
+class Person4{
+	constructor(){
+	}
+	get aaa(){
+		return `获取aaa的值为${this.val}`
+	}
+	set aaa(val){
+		console.log(val)
+	}
+}
+let p4 = new Person4;
+p4.aaa = '传输进去的值'
+console.log(p4.aaa)
+// 静态方法：就是类身上的方法
+// 实现让类调用这个方法 使用static关键字就可以实现让类调用类这个对象上面绑定的方法
+class Person5{
+	constructor(){
+	}
+	showName5(){
+		return `这是showName方法`
+	}
+	static aaa(){
+		return `这是person5的aaa方法`
+	}
+}
+let p5 = new Person5;
+console.log(p5.showName5());
+console.log(Person5.aaa())
+// 子类和父类：继承es5的
+// 父类：
+function Persons(name){
+	this.name = name;
+}
+Persons.prototype.showName6 = function(){
+	return `学生的名字是${this.name}`
+};
+// 子类：
+function Student1(name,skill){
+	Persons.call(this,name) // 继承父类属性
+	this.skill = skill
+}
+Student1.prototype = new Persons() //继承父类方法 一定要new person否则不会出现
+// 调用
+let stu1 = new Student1('xiaoming','逃学');
+console.log(stu1.showName6())
+// es6的继承
+// 父类
+class Person7{
+	constructor(name){
+		this.name = name;
+	}
+	showName(){
+		console.log('fuleidefangfa')
+		return `这是父类的方法,${this.name}`
+	}
+
+}
+// 子类
+class Student2 extends Person7{
+	constructor(name,skill){
+		super(name);//使用super来继承父类的属性
+		this.skill = skill;
+	}
+	showName(){
+		super.showName() //父类的方法执行
+		return '子类里面的showname';
+	}
+	showSkill(){
+		return `我最擅长的技能是${this.skill}`
+	}
+}
+// 调用
+let stu2 = new Student2('大张三','泡妞');
+console.log(stu2.showName())
+// 继承实现拖拽demo
+class Drag{
+	constructor(id){
+		this.oDiv = document.querySelector(id);
+		this.disx = 0;
+		this.disy = 0;
+		console.log(this.oDiv)
+		this.init();
+	}
+	init(){
+		this.oDiv.onmousedown = function(ev){
+			this.disx = ev.clientX - this.oDiv.offsetLeft;
+			this.disy = ev.clientY - this.oDiv.offsetTop;
+			document.onmousemove = this.fnMove.bind(this);
+			document.onmouseup = this.fnUp.bind(this);
+			return false
+		}.bind(this)
+	}
+	fnMove(ev) {
+		this.oDiv.style.left = ev.clientX - this.disx+'px';
+		this.oDiv.style.top = ev.clientY - this.disy+'px';
+	}
+	fnUp() {
+		document.onmousemove = null;
+		document.onmouseup = null;
+	}
+}
+class DragLimt extends Drag{
+	fnMove(ev){
+		super.fnMove(ev);//继承父类的方法
+		// 限制内容
+		if (this.oDiv.offsetLeft<=0) {
+			this.oDiv.style.left = 0;
+		}else if (this.oDiv.offsetright<=0) {
+			this.oDiv.style.right = 0;
+		}
+	}
+
+}
+// 调用
+new Drag('#div1');
+new DragLimt('#div2');	
+```
 
 
 
@@ -423,5 +590,4 @@ Promise:
 
 
 
-
-​	
+	

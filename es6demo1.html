@@ -3,7 +3,25 @@
 <head>
 	<title></title>
 </head>
+<style type="text/css">
+	.box{
+		width: 100px;
+		height: 100px;
+		background: red;
+		position: absolute;
+		top: 0;
+	}
+	.left{
+		left: 0;
+	}
+	.right{
+		right: 0;
+	}
+
+</style>
 <body>
+	<div id="div1" class='box left'>div1</div>
+	<div id="div2" class='box right'>div2</div>
 
 </body>
 <script type="text/javascript">
@@ -15,8 +33,6 @@
 		}
 	}
 	arr[1]();
-
-
 //解构赋值
 	let [a,b,c] = [12,1,2];
 
@@ -371,6 +387,145 @@
 	}
 	let pro3 = new Person2('lisi',99)
 	console.log(pro3.showName3())
+	// class里面this的指向问题 bind 规定重新指向问题
+	/*
+		fn.call(this指向谁，args1，args2) 	  传递的不是数组
+		fn.apply(this指向谁，[ags1，args2]) 传递的是数组
+	*/
+	class Person3{
+		constructor(){
+			this.name = '新的aaa';
+			this.showName4 = this.showName4.bind(this)
+		}
+		showName4(){
+			return `新的名字为${this.name}`
+		}
+	}
+	let p3 = new Person3;
+	let {showName4} = p3
+	console.log(showName4())
+	// class 新加的seter 和 geter
+	class Person4{
+		constructor(){
+
+		}
+		get aaa(){
+			return `获取aaa的值为${this.val}`
+		}
+		set aaa(val){
+			console.log(val)
+		}
+		
+	}
+	let p4 = new Person4;
+	p4.aaa = '传输进去的值'
+	console.log(p4.aaa)
+	// 静态方法：就是类身上的方法
+	// 实现让类调用这个方法 使用static关键字就可以实现让类调用类这个对象上面绑定的方法
+	class Person5{
+		constructor(){
+
+		}
+		showName5(){
+			return `这是showName方法`
+		}
+		static aaa(){
+			return `这是person5的aaa方法`
+		}
+
+	}
+	let p5 = new Person5;
+	console.log(p5.showName5());
+	console.log(Person5.aaa())
+	// 子类和父类：继承es5的
+	// 父类：
+	function Persons(name){
+		this.name = name;
+	}
+	Persons.prototype.showName6 = function(){
+		return `学生的名字是${this.name}`
+	};
+	// 子类：
+	function Student1(name,skill){
+		Persons.call(this,name) // 继承父类属性
+		this.skill = skill
+	}
+	Student1.prototype = new Persons() //继承父类方法 一定要new person否则不会出现
+	// 调用
+	let stu1 = new Student1('xiaoming','逃学');
+	console.log(stu1.showName6())
+	// es6的继承
+	// 父类
+	class Person7{
+		constructor(name){
+			this.name = name;
+		}
+		showName(){
+			console.log('fuleidefangfa')
+			return `这是父类的方法,${this.name}`
+		}
+
+	}
+	// 子类
+	class Student2 extends Person7{
+		constructor(name,skill){
+			super(name);//使用super来继承父类的属性
+			this.skill = skill;
+		}
+		showName(){
+			super.showName() //父类的方法执行
+			return '子类里面的showname';
+		}
+		showSkill(){
+			return `我最擅长的技能是${this.skill}`
+		}
+	}
+	// 调用
+	let stu2 = new Student2('大张三','泡妞');
+	console.log(stu2.showName())
+	// 继承实现拖拽demo
+	class Drag{
+		constructor(id){
+			this.oDiv = document.querySelector(id);
+			this.disx = 0;
+			this.disy = 0;
+			console.log(this.oDiv)
+			this.init();
+		}
+		init(){
+			this.oDiv.onmousedown = function(ev){
+				this.disx = ev.clientX - this.oDiv.offsetLeft;
+				this.disy = ev.clientY - this.oDiv.offsetTop;
+				document.onmousemove = this.fnMove.bind(this);
+				document.onmouseup = this.fnUp.bind(this);
+				return false
+			}.bind(this)
+		}
+		fnMove(ev) {
+			this.oDiv.style.left = ev.clientX - this.disx+'px';
+			this.oDiv.style.top = ev.clientY - this.disy+'px';
+		}
+		fnUp() {
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+	class DragLimt extends Drag{
+		fnMove(ev){
+			super.fnMove(ev);//继承父类的方法
+			// 限制内容
+			if (this.oDiv.offsetLeft<=0) {
+				this.oDiv.style.left = 0;
+			}else if (this.oDiv.offsetright<=0) {
+				this.oDiv.style.right = 0;
+			}
+		}
+
+	}
+	// 调用
+	new Drag('#div1');
+	new DragLimt('#div2');
+
 
 
 
