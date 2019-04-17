@@ -4,9 +4,9 @@ let定义：
 
 		在代码块内，只要let定义变量，在之前使用都是报错
 
-		先定义在使用
+​		先定义在使用
 
-	2、同一个作用域里面，不能重复定义变量
+​	2、同一个作用域里面，不能重复定义变量
 
 ​	3、for循环，for循环里面是父级作用域，里面又一个
 
@@ -582,6 +582,155 @@ class DragLimt extends Drag{
 new Drag('#div1');
 new DragLimt('#div2');	
 ```
+
+
+ 数据类型：
+
+```javascript
+/*  1.symbol不能使用new
+	2.symbol返回是一个唯一值
+		做一个key和一些私有的东西
+	3.Symbol是一个单独的数据类型就叫Symbol，基本类型
+	4.如果Symbol作为key，用forin循环出不来*/
+let sym = Symbol('aaaaaa');
+console.log(sym)
+```
+
+generator函数：
+
+```javascript
+/*	1.可以使用结构赋值
+	2.扩展运算符
+	3.还可以使用Array.from转换成数组*/
+	function * gener() {
+		yield 'hello';
+		yield 'to';
+		yield 'world';
+		return 'world';
+	}
+	let gene = gener();
+	for (let val of gene){
+		console.log(val)
+	}
+	let [g1,...g2] = gener()
+	console.log(g1,g2)
+	console.log(...gener())
+	console.log(Array.from(gener()))
+```
+
+async特点:
+
+```javascript
+/*	1.await只能放到async函数中
+	2.相比genrator语义化更强
+	3.await后面可以是promise对象，也可以是数字布尔字符串
+	4.async函数返回的就是一个promise对象
+	*/
+	// 1.promise封装
+	// const fs = require('fs');
+	/*const readFile = function(filename){
+		return new Promise((resolve,reject)=>{
+			fs.readFile(filename,(err,data)=>{
+				if (err) {
+					reject(err)
+				}else{
+					resolve(data)
+				}
+			})
+		})
+	}
+	// 使用
+	readFile('data/a.txt').then(res=> {
+		console.log(res.toString());
+	})*/
+	// async调用
+	/*async function fn (){
+		let f1 = await readFile('data/a.txt');
+		let f2 = await readFile('data/b.txt');
+		let f3 = await readFile('data/c.txt');
+		console.log(f1.toString(),f2.toString(),f3.toString());
+	}
+	fn();*/
+	/*5.只要await后面promise状态变为reject那么整个async函数会中断执行
+		如何解决async函数中抛出错误，影响后续代码执行
+		try {
+			//放置异常报错的代码
+		} catch(e) {
+		}*/
+	async function fn1(){
+		try {
+			return await Promise.reject('失败了！！fn1');
+		} catch(e) {
+			console.log(e);
+		}
+		return await Promise.resolve('成功了！fn1');
+		
+		
+	}
+	fn1().then(res=> {
+		console.log(res)
+	}).catch(err=> {
+		console.log(err)
+	})
+```
+
+Set数据结构：
+
+```javascript
+// Set数据结构：类似数组但是里面不能有重复的值没有key没有get方法 **存储的是一个数组，初始往里面添加东西是	不行的，必须使用add来进行添加才可以
+	let set1 = new Set(['a','b']);
+	console.log(set1)
+	set1.forEach((item,index) => {//可以使用循环来正常的便利里面的属性
+		console.log(item)
+		console.log(index)//没有下标
+	})
+	console.log(set1.add('c'))//通过add给set里面添加元素
+	console.log(set1.size)//获取里面有多少元素
+	console.log(set1.delete('a'))//通过delete删除里面的元素
+	console.log(set1.has('b'))//检查set里面是否有这个值有的话true没有的话是false
+	console.log(set1.clear())//清空set里面的所有的值
+	console.log(set1)
+	// set数组去重
+	let arrauuns = [1,2,3,4,5,6,7,8,9,0,9,8,7,6,5,43,2,1];
+	let arrayuns1 = [...new Set(arrauuns)]
+	console.log(arrayuns1)
+```
+
+Map数据结构：
+
+```javascript
+// Map数据结构 对json功能的增强，key可以使任意类型有set和get方法
+	let map1 = new Map();
+	map1.set('key','value')//设置一个值用set
+	map1.get('key')//获取一个值
+	console.log(map1)
+	map1.forEach(item =>{
+		console.log(item)
+	})
+```
+
+Number：
+
+```javascript
+// Number新增内容
+	Number.isFinite(000)//判断是不是数字是的话返回true不是的话就是false
+	Number.isInteger(0.5)//判断是不是整数是整数就返回true不是的话就是false
+	// 安全整数
+	Number.isSafelnteger(2**53-1)//包含2**53-1和-(2**53-1)为安全整数为true如果不是2**53-1就是不安全整数为fasle
+	Number.MAX_SAFE_INTEGER //最大安全整数
+	Number.MIN_SAFE_INTEGER //最小安全整数
+
+```
+
+Math:
+
+```javascript
+// Match
+	Math.trunc(4.99)//截取，只保留整数
+	Math.sign(-9)//判断一个数是正数还是负数还是0 负数返回的是-1正数返回的是1，0的时候返回的是0，-0的时候返回的是-0其他值返回NAN
+	Math.cbrt()//计算一个数的立方根
+```
+
 
 
 
