@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
     <title>I Love You</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -11,54 +12,72 @@
             font-size: 12px;
             overflow: auto
         }
+
         #mainDiv {
             width: 100%;
             height: 100%
         }
+
         #loveHeart {
             float: left;
             width: 670px;
             height: 625px
         }
+
         #garden {
             width: 100%;
             height: 100%
         }
+
         #elapseClock {
             text-align: right;
             font-size: 18px;
             margin-top: 10px;
             margin-bottom: 10px
         }
+
         #words {
             font-family: "sans-serif";
             width: 500px;
             font-size: 24px;
             color: #666
         }
-        #messages {
-            display: none
+        #photo{
+            display: none;
         }
+
+        #messages {
+            /* text-align: center; */
+            display: none;
+            /* display: flex; */
+            /* justify-content: center; */
+            font-size:35px;
+        }
+
         #elapseClock .digit {
             font-family: "digit";
             font-size: 36px
         }
+
         #loveu {
             padding: 5px;
             font-size: 22px;
-            margin-top: 80px;
+            margin-top: 100px;
             margin-right: 120px;
             text-align: right;
             display: none
         }
+
         #loveu .signature {
             margin-top: 10px;
             font-size: 20px;
             font-style: italic
         }
+
         #clickSound {
             display: none
         }
+
         #code {
             float: left;
             width: 440px;
@@ -68,28 +87,35 @@
             font-size: 15px;
             line-height: 1.5
         }
+
         #code .string {
             color: #2a36ff
         }
+
         #code .keyword {
             color: #7f0055;
             font-weight: bold
         }
+
         #code .placeholder {
             margin-left: 15px
         }
+
         #code .space {
             margin-left: 7px
         }
+
         #code .comments {
             color: #02BB02;
         }
+
         #copyright {
             margin-top: 10px;
             text-align: center;
             width: 100%;
             color: #666
         }
+
         #errorMsg {
             width: 100%;
             text-align: center;
@@ -98,6 +124,7 @@
             top: 100px;
             left: 0
         }
+
         #copyright a {
             color: #666
         }
@@ -168,15 +195,15 @@
                     j = c(a.target).closest(f, a.currentTarget);
                     n = 0;
                     for (r =
-                             j.length; n < r; n++) for (k = 0; k < u.length; k++) {
-                        i = u[k];
-                        if (j[n].selector === i.selector) {
-                            o = j[n].elem;
-                            f = null;
-                            if (i.preType === "mouseenter" || i.preType === "mouseleave") f = c(a.relatedTarget).closest(i.selector)[0];
-                            if (!f || f !== o) d.push({elem: o, handleObj: i})
+                        j.length; n < r; n++) for (k = 0; k < u.length; k++) {
+                            i = u[k];
+                            if (j[n].selector === i.selector) {
+                                o = j[n].elem;
+                                f = null;
+                                if (i.preType === "mouseenter" || i.preType === "mouseleave") f = c(a.relatedTarget).closest(i.selector)[0];
+                                if (!f || f !== o) d.push({ elem: o, handleObj: i })
+                            }
                         }
-                    }
                     n = 0;
                     for (r = d.length; n < r; n++) {
                         j = d[n];
@@ -228,7 +255,7 @@
                     c.clean(a, b, f, d)
                 }
                 if (e) c.fragments[a[0]] = j ? f : 1;
-                return {fragment: f, cacheable: e}
+                return { fragment: f, cacheable: e }
             }
 
             function K(a, b) {
@@ -244,8 +271,8 @@
             }
 
             var c = function (a, b) {
-                    return new c.fn.init(a, b)
-                }, Ra = A.jQuery, Sa = A.$, s = A.document, T, Ta = /^[^<]*(<[\w\W]+>)[^>]*$|^#([\w-]+)$/,
+                return new c.fn.init(a, b)
+            }, Ra = A.jQuery, Sa = A.$, s = A.document, T, Ta = /^[^<]*(<[\w\W]+>)[^>]*$|^#([\w-]+)$/,
                 Ua = /^.[^:#\[\.,]*$/,
                 Va = /\S/,
                 Wa = /^(\s|\u00A0)+|(\s|\u00A0)+$/g, Xa = /^<(\w+)\s*\/?>(?:<\/\1>)?$/, P = navigator.userAgent,
@@ -271,31 +298,31 @@
                     }
                     if (typeof a === "string") if ((d = Ta.exec(a)) &&
                         (d[1] || !b)) if (d[1]) {
-                        f = b ? b.ownerDocument || b : s;
-                        if (a = Xa.exec(a)) if (c.isPlainObject(b)) {
-                            a = [s.createElement(a[1])];
-                            c.fn.attr.call(a, b, true)
-                        } else a = [f.createElement(a[1])]; else {
-                            a = sa([d[1]], [f]);
-                            a = (a.cacheable ? a.fragment.cloneNode(true) : a.fragment).childNodes
-                        }
-                        return c.merge(this, a)
-                    } else {
-                        if (b = s.getElementById(d[2])) {
-                            if (b.id !== d[2]) return T.find(a);
-                            this.length = 1;
-                            this[0] = b
-                        }
-                        this.context = s;
-                        this.selector = a;
-                        return this
-                    } else if (!b && /^\w+$/.test(a)) {
-                        this.selector = a;
-                        this.context = s;
-                        a = s.getElementsByTagName(a);
-                        return c.merge(this,
-                            a)
-                    } else return !b || b.jquery ? (b || T).find(a) : c(b).find(a); else if (c.isFunction(a)) return T.ready(a);
+                            f = b ? b.ownerDocument || b : s;
+                            if (a = Xa.exec(a)) if (c.isPlainObject(b)) {
+                                a = [s.createElement(a[1])];
+                                c.fn.attr.call(a, b, true)
+                            } else a = [f.createElement(a[1])]; else {
+                                a = sa([d[1]], [f]);
+                                a = (a.cacheable ? a.fragment.cloneNode(true) : a.fragment).childNodes
+                            }
+                            return c.merge(this, a)
+                        } else {
+                            if (b = s.getElementById(d[2])) {
+                                if (b.id !== d[2]) return T.find(a);
+                                this.length = 1;
+                                this[0] = b
+                            }
+                            this.context = s;
+                            this.selector = a;
+                            return this
+                        } else if (!b && /^\w+$/.test(a)) {
+                            this.selector = a;
+                            this.context = s;
+                            a = s.getElementsByTagName(a);
+                            return c.merge(this,
+                                a)
+                        } else return !b || b.jquery ? (b || T).find(a) : c(b).find(a); else if (c.isFunction(a)) return T.ready(a);
                     if (a.selector !== w) {
                         this.selector = a.selector;
                         this.context = a.context
@@ -405,7 +432,7 @@
                     if (a.constructor && !aa.call(a, "constructor") && !aa.call(a.constructor.prototype,
                         "isPrototypeOf")) return false;
                     var b;
-                    for (b in a) ;
+                    for (b in a);
                     return b === w || aa.call(a, b)
                 }, isEmptyObject: function (a) {
                     for (var b in a) return false;
@@ -437,7 +464,7 @@
                         if (b.apply(a[e++], d) === false) break
                     } else if (i) for (f in a) {
                         if (b.call(a[f], f, a[f]) === false) break
-                    } else for (d = a[0]; e < j && b.call(d, e, d) !== false; d = a[++e]) ;
+                    } else for (d = a[0]; e < j && b.call(d, e, d) !== false; d = a[++e]);
                     return a
                 }, trim: function (a) {
                     return (a || "").replace(Wa, "")
@@ -482,7 +509,7 @@
                 }, uaMatch: function (a) {
                     a = a.toLowerCase();
                     a = /(webkit)[ \/]([\w.]+)/.exec(a) || /(opera)(?:.*version)?[ \/]([\w.]+)/.exec(a) || /(msie) ([\w.]+)/.exec(a) || !/compatible/.test(a) && /(mozilla)(?:.*? rv:([\w.]+))?/.exec(a) || [];
-                    return {browser: a[1] || "", version: a[2] || "0"}
+                    return { browser: a[1] || "", version: a[2] || "0" }
                 }, browser: {}
             });
             P = c.uaMatch(P);
@@ -724,7 +751,7 @@
                         var e = this[d];
                         if (e.nodeType === 1) if (e.className) {
                             for (var j = " " + e.className + " ",
-                                     i = e.className, o = 0, k = b.length; o < k; o++) if (j.indexOf(" " + b[o] + " ") < 0) i += " " + b[o];
+                                i = e.className, o = 0, k = b.length; o < k; o++) if (j.indexOf(" " + b[o] + " ") < 0) i += " " + b[o];
                             e.className = c.trim(i)
                         } else e.className = a
                     }
@@ -870,7 +897,7 @@
                             o.elem = a;
                             b = b.split(" ");
                             for (var k, n = 0, r; k = b[n++];) {
-                                j = e ? c.extend({}, e) : {handler: d, data: f};
+                                j = e ? c.extend({}, e) : { handler: d, data: f };
                                 if (k.indexOf(".") > -1) {
                                     r = k.split(".");
                                     k = r.shift();
@@ -985,21 +1012,21 @@
                     }
                     if (!a.isPropagationStopped() &&
                         f) c.event.trigger(a, b, f, true); else if (!a.isDefaultPrevented()) {
-                        f = a.target;
-                        var i, o = c.nodeName(f, "a") && e === "click", k = c.event.special[e] || {};
-                        if ((!k._default || k._default.call(d, a) === false) && !o && !(f && f.nodeName && c.noData[f.nodeName.toLowerCase()])) {
-                            try {
-                                if (f[e]) {
-                                    if (i = f["on" + e]) f["on" + e] = null;
-                                    c.event.triggered = true;
-                                    f[e]()
+                            f = a.target;
+                            var i, o = c.nodeName(f, "a") && e === "click", k = c.event.special[e] || {};
+                            if ((!k._default || k._default.call(d, a) === false) && !o && !(f && f.nodeName && c.noData[f.nodeName.toLowerCase()])) {
+                                try {
+                                    if (f[e]) {
+                                        if (i = f["on" + e]) f["on" + e] = null;
+                                        c.event.triggered = true;
+                                        f[e]()
+                                    }
+                                } catch (n) {
                                 }
-                            } catch (n) {
+                                if (i) f["on" + e] = i;
+                                c.event.triggered = false
                             }
-                            if (i) f["on" + e] = i;
-                            c.event.triggered = false
                         }
-                    }
                 },
                 handle: function (a) {
                     var b, d, f, e;
@@ -1063,15 +1090,15 @@
                 guid: 1E8,
                 proxy: c.proxy,
                 special: {
-                    ready: {setup: c.bindReady, teardown: c.noop}, live: {
+                    ready: { setup: c.bindReady, teardown: c.noop }, live: {
                         add: function (a) {
-                            c.event.add(this, a.origType, c.extend({}, a, {handler: oa}))
+                            c.event.add(this, a.origType, c.extend({}, a, { handler: oa }))
                         }, remove: function (a) {
                             var b = true, d = a.origType.replace(O, "");
                             c.each(c.data(this,
                                 "events").live || [], function () {
-                                if (d === this.origType.replace(O, "")) return b = false
-                            });
+                                    if (d === this.origType.replace(O, "")) return b = false
+                                });
                             b && c.event.remove(this, a.origType, oa)
                         }
                     }, beforeunload: {
@@ -1134,7 +1161,7 @@
                 a.type = a.data;
                 c.event.handle.apply(this, arguments)
             };
-            c.each({mouseenter: "mouseover", mouseleave: "mouseout"}, function (a, b) {
+            c.each({ mouseenter: "mouseover", mouseleave: "mouseout" }, function (a, b) {
                 c.event.special[a] = {
                     setup: function (d) {
                         c.event.add(this, b, d && d.selector ? Ea : Da, a)
@@ -1144,22 +1171,22 @@
                 }
             });
             if (!c.support.submitBubbles) c.event.special.submit =
-                {
-                    setup: function () {
-                        if (this.nodeName.toLowerCase() !== "form") {
-                            c.event.add(this, "click.specialSubmit", function (a) {
-                                var b = a.target, d = b.type;
-                                if ((d === "submit" || d === "image") && c(b).closest("form").length) return na("submit", this, arguments)
-                            });
-                            c.event.add(this, "keypress.specialSubmit", function (a) {
-                                var b = a.target, d = b.type;
-                                if ((d === "text" || d === "password") && c(b).closest("form").length && a.keyCode === 13) return na("submit", this, arguments)
-                            })
-                        } else return false
-                    }, teardown: function () {
-                        c.event.remove(this, ".specialSubmit")
-                    }
-                };
+            {
+                setup: function () {
+                    if (this.nodeName.toLowerCase() !== "form") {
+                        c.event.add(this, "click.specialSubmit", function (a) {
+                            var b = a.target, d = b.type;
+                            if ((d === "submit" || d === "image") && c(b).closest("form").length) return na("submit", this, arguments)
+                        });
+                        c.event.add(this, "keypress.specialSubmit", function (a) {
+                            var b = a.target, d = b.type;
+                            if ((d === "text" || d === "password") && c(b).closest("form").length && a.keyCode === 13) return na("submit", this, arguments)
+                        })
+                    } else return false
+                }, teardown: function () {
+                    c.event.remove(this, ".specialSubmit")
+                }
+            };
             if (!c.support.changeBubbles) {
                 var da = /textarea|input|select/i, ea, Fa = function (a) {
                     var b = a.type, d = a.value;
@@ -1204,7 +1231,7 @@
                 };
                 ea = c.event.special.change.filters
             }
-            s.addEventListener && c.each({focus: "focusin", blur: "focusout"}, function (a, b) {
+            s.addEventListener && c.each({ focus: "focusin", blur: "focusout" }, function (a, b) {
                 function d(f) {
                     f = c.event.fix(f);
                     f.type = b;
@@ -1278,7 +1305,7 @@
                     return this.mouseenter(a).mouseleave(b || a)
                 }
             });
-            var Ga = {focus: "focusin", blur: "focusout", mouseenter: "mouseover", mouseleave: "mouseout"};
+            var Ga = { focus: "focusin", blur: "focusout", mouseenter: "mouseover", mouseleave: "mouseout" };
             c.each(["live", "die"], function (a, b) {
                 c.fn[b] = function (d, f, e, j) {
                     var i, o = 0, k, n, r = j || this.selector,
@@ -1482,7 +1509,7 @@
                         }
                     }
                     m || (m = h.getElementsByTagName("*"));
-                    return {set: m, expr: g}
+                    return { set: m, expr: g }
                 };
                 k.filter = function (g, h, l, m) {
                     for (var q = g, p = [], v = h, t, y, S = h && h[0] && x(h[0]); g && h.length;) {
@@ -1519,7 +1546,7 @@
                     return v
                 };
                 k.error = function (g) {
-                    throw"Syntax error, unrecognized expression: " + g;
+                    throw "Syntax error, unrecognized expression: " + g;
                 };
                 var n = k.selectors = {
                     order: ["ID", "NAME", "TAG"], match: {
@@ -1531,7 +1558,7 @@
                         CHILD: /:(only|nth|last|first)-child(?:\((even|odd|[\dn+-]*)\))?/,
                         POS: /:(nth|eq|gt|lt|first|last|even|odd)(?:\((\d*)\))?(?=[^-]|$)/,
                         PSEUDO: /:((?:[\w\u00c0-\uFFFF-]|\\.)+)(?:\((['"]?)((?:\([^\)]+\)|[^\(\)]*)+)\2\))?/
-                    }, leftMatch: {}, attrMap: {"class": "className", "for": "htmlFor"}, attrHandle: {
+                    }, leftMatch: {}, attrMap: { "class": "className", "for": "htmlFor" }, attrHandle: {
                         href: function (g) {
                             return g.getAttribute("href")
                         }
@@ -1543,7 +1570,7 @@
                             if (m) h = h.toLowerCase();
                             m = 0;
                             for (var q = g.length, p; m < q; m++) if (p = g[m]) {
-                                for (; (p = p.previousSibling) && p.nodeType !== 1;) ;
+                                for (; (p = p.previousSibling) && p.nodeType !== 1;);
                                 g[m] = l || p && p.nodeName.toLowerCase() === h ? p || false : p === h
                             }
                             l && k.filter(h, g, true)
@@ -1736,7 +1763,7 @@
                             var m = h[2];
                             h = h[4];
                             return g == null ? m === "!=" : m ===
-                            "=" ? l === h : m === "*=" ? l.indexOf(h) >= 0 : m === "~=" ? (" " + l + " ").indexOf(h) >= 0 : !h ? l && g !== false : m === "!=" ? l !== h : m === "^=" ? l.indexOf(h) === 0 : m === "$=" ? l.substr(l.length - h.length) === h : m === "|=" ? l === h || l.substr(0, h.length + 1) === h + "-" : false
+                                "=" ? l === h : m === "*=" ? l.indexOf(h) >= 0 : m === "~=" ? (" " + l + " ").indexOf(h) >= 0 : !h ? l && g !== false : m === "!=" ? l !== h : m === "^=" ? l.indexOf(h) === 0 : m === "$=" ? l.substr(l.length - h.length) === h : m === "|=" ? l === h || l.substr(0, h.length + 1) === h + "-" : false
                         }, POS: function (g, h, l, m) {
                             var q = n.setFilters[h[2]];
                             if (q) return q(g, l, h, m)
@@ -1746,7 +1773,7 @@
                 for (var u in n.match) {
                     n.match[u] = new RegExp(n.match[u].source + /(?![^\[]*\])(?![^\(]*\))/.source);
                     n.leftMatch[u] = new RegExp(/(^(?:.|\r|\n)*?)/.source + n.match[u].source.replace(/\\(\d+)/g, function (g,
-                                                                                                                            h) {
+                        h) {
                         return "\\" + (h - 0 + 1)
                     }))
                 }
@@ -1808,7 +1835,7 @@
                     if (s.getElementById(h)) {
                         n.find.ID = function (m, q, p) {
                             if (typeof q.getElementById !== "undefined" && !p) return (q = q.getElementById(m[1])) ? q.id === m[1] || typeof q.getAttributeNode !== "undefined" &&
-                            q.getAttributeNode("id").nodeValue === m[1] ? [q] : w : []
+                                q.getAttributeNode("id").nodeValue === m[1] ? [q] : w : []
                         };
                         n.filter.ID = function (m, q) {
                             var p = typeof m.getAttributeNode !== "undefined" && m.getAttributeNode("id");
@@ -1867,23 +1894,23 @@
                     }
                 })();
                 var E = s.compareDocumentPosition ? function (g, h) {
-                        return !!(g.compareDocumentPosition(h) & 16)
-                    } :
+                    return !!(g.compareDocumentPosition(h) & 16)
+                } :
                     function (g, h) {
                         return g !== h && (g.contains ? g.contains(h) : true)
                     }, x = function (g) {
-                    return (g = (g ? g.ownerDocument || g : 0).documentElement) ? g.nodeName !== "HTML" : false
-                }, ga = function (g, h) {
-                    var l = [], m = "", q;
-                    for (h = h.nodeType ? [h] : h; q = n.match.PSEUDO.exec(g);) {
-                        m += q[0];
-                        g = g.replace(n.match.PSEUDO, "")
-                    }
-                    g = n.relative[g] ? g + "*" : g;
-                    q = 0;
-                    for (var p = h.length; q < p; q++) k(g, h[q], l);
-                    return k.filter(m, l)
-                };
+                        return (g = (g ? g.ownerDocument || g : 0).documentElement) ? g.nodeName !== "HTML" : false
+                    }, ga = function (g, h) {
+                        var l = [], m = "", q;
+                        for (h = h.nodeType ? [h] : h; q = n.match.PSEUDO.exec(g);) {
+                            m += q[0];
+                            g = g.replace(n.match.PSEUDO, "")
+                        }
+                        g = n.relative[g] ? g + "*" : g;
+                        q = 0;
+                        for (var p = h.length; q < p; q++) k(g, h[q], l);
+                        return k.filter(m, l)
+                    };
                 c.find = k;
                 c.expr = k.selectors;
                 c.expr[":"] = c.expr.filters;
@@ -1946,7 +1973,7 @@
                                 for (i in j) {
                                     e = j[i];
                                     if (e.jquery ? e.index(f) > -1 : c(f).is(e)) {
-                                        d.push({selector: i, elem: f});
+                                        d.push({ selector: i, elem: f });
                                         delete j[i]
                                     }
                                 }
@@ -2021,7 +2048,7 @@
                     var f = [];
                     for (a = a[b]; a && a.nodeType !== 9 && (d === w || a.nodeType !== 1 || !c(a).is(d));) {
                         a.nodeType ===
-                        1 && f.push(a);
+                            1 && f.push(a);
                         a = a[b]
                     }
                     return f
@@ -2152,21 +2179,21 @@
                 }, html: function (a) {
                     if (a === w) return this[0] && this[0].nodeType === 1 ? this[0].innerHTML.replace(Ja,
                         "") : null; else if (typeof a === "string" && !ta.test(a) && (c.support.leadingWhitespace || !V.test(a)) && !F[(La.exec(a) || ["", ""])[1].toLowerCase()]) {
-                        a = a.replace(Ka, Ma);
-                        try {
-                            for (var b = 0, d = this.length; b < d; b++) if (this[b].nodeType === 1) {
-                                c.cleanData(this[b].getElementsByTagName("*"));
-                                this[b].innerHTML = a
+                            a = a.replace(Ka, Ma);
+                            try {
+                                for (var b = 0, d = this.length; b < d; b++) if (this[b].nodeType === 1) {
+                                    c.cleanData(this[b].getElementsByTagName("*"));
+                                    this[b].innerHTML = a
+                                }
+                            } catch (f) {
+                                this.empty().append(a)
                             }
-                        } catch (f) {
-                            this.empty().append(a)
-                        }
-                    } else c.isFunction(a) ? this.each(function (e) {
-                        var j = c(this), i = j.html();
-                        j.empty().append(function () {
-                            return a.call(this, e, i)
-                        })
-                    }) : this.empty().append(a);
+                        } else c.isFunction(a) ? this.each(function (e) {
+                            var j = c(this), i = j.html();
+                            j.empty().append(function () {
+                                return a.call(this, e, i)
+                            })
+                        }) : this.empty().append(a);
                     return this
                 }, replaceWith: function (a) {
                     if (this[0] &&
@@ -2201,10 +2228,10 @@
                     });
                     if (this[0]) {
                         e = i && i.parentNode;
-                        e = c.support.parentNode && e && e.nodeType === 11 && e.childNodes.length === this.length ? {fragment: e} : sa(a, this, o);
+                        e = c.support.parentNode && e && e.nodeType === 11 && e.childNodes.length === this.length ? { fragment: e } : sa(a, this, o);
                         k = e.fragment;
                         if (j = k.childNodes.length ===
-                        1 ? (k = k.firstChild) : k.firstChild) {
+                            1 ? (k = k.firstChild) : k.firstChild) {
                             b = b && c.nodeName(j, "tr");
                             for (var n = 0, r = this.length; n < r; n++) d.call(b ? f(this[n], j) : this[n], n > 0 || e.cacheable || this.length > 1 ? k.cloneNode(true) : k)
                         }
@@ -2280,7 +2307,7 @@
             });
             var kb = /z-?index|font-?weight|opacity|zoom|line-?height/i, Na = /alpha\([^)]*\)/, Oa = /opacity=([^)]*)/,
                 ha = /float/i, ia = /-([a-z])/ig, lb = /([A-Z])/g, mb = /^-?\d+(?:px)?$/i, nb = /^-?\d/,
-                ob = {position: "absolute", visibility: "hidden", display: "block"}, pb = ["Left", "Right"],
+                ob = { position: "absolute", visibility: "hidden", display: "block" }, pb = ["Left", "Right"],
                 qb = ["Top", "Bottom"], rb = s.defaultView && s.defaultView.getComputedStyle,
                 Pa = c.support.cssFloat ? "cssFloat" : "styleFloat", ja =
                     function (a, b) {
@@ -2418,8 +2445,8 @@
                     }).map(function (a, b) {
                         a = c(this).val();
                         return a == null ? null : c.isArray(a) ? c.map(a, function (d) {
-                            return {name: b.name, value: d}
-                        }) : {name: b.name, value: a}
+                            return { name: b.name, value: d }
+                        }) : { name: b.name, value: a }
                     }).get()
                 }
             });
@@ -2436,7 +2463,7 @@
                         d = b;
                         b = null
                     }
-                    return c.ajax({type: "GET", url: a, data: b, success: d, dataType: f})
+                    return c.ajax({ type: "GET", url: a, data: b, success: d, dataType: f })
                 }, getScript: function (a, b) {
                     return c.get(a, null, b, "script")
                 }, getJSON: function (a, b, d) {
@@ -2447,7 +2474,7 @@
                         d = b;
                         b = {}
                     }
-                    return c.ajax({type: "POST", url: a, data: b, success: d, dataType: f})
+                    return c.ajax({ type: "POST", url: a, data: b, success: d, dataType: f })
                 }, ajaxSetup: function (a) {
                     c.extend(c.ajaxSettings, a)
                 }, ajaxSettings: {
@@ -2476,7 +2503,7 @@
                 }, lastModified: {}, etag: {}, ajax: function (a) {
                     function b() {
                         e.success &&
-                        e.success.call(k, o, i, x);
+                            e.success.call(k, o, i, x);
                         e.global && f("ajaxSuccess", [x, e])
                     }
 
@@ -2567,7 +2594,7 @@
                         var g = x.onreadystatechange = function (q) {
                             if (!x || x.readyState === 0 || q === "abort") {
                                 E ||
-                                d();
+                                    d();
                                 E = true;
                                 if (x) x.onreadystatechange = c.noop
                             } else if (!E && x && (x.readyState === 4 || q === "timeout")) {
@@ -2698,7 +2725,7 @@
                     }) : this.animate(K("toggle", 3), a, b);
                     return this
                 }, fadeTo: function (a, b, d) {
-                    return this.filter(":hidden").css("opacity", 0).show().end().animate({opacity: b}, a, d)
+                    return this.filter(":hidden").css("opacity", 0).show().end().animate({ opacity: b }, a, d)
                 },
                 animate: function (a, b, d, f) {
                     var e = c.speed(b, d, f);
@@ -2761,8 +2788,8 @@
                 slideDown: K("show", 1),
                 slideUp: K("hide", 1),
                 slideToggle: K("toggle", 1),
-                fadeIn: {opacity: "show"},
-                fadeOut: {opacity: "hide"}
+                fadeIn: { opacity: "show" },
+                fadeOut: { opacity: "hide" }
             }, function (a, b) {
                 c.fn[a] = function (d, f) {
                     return this.animate(b, d, f)
@@ -2776,7 +2803,7 @@
                         easing: d && b || b && !c.isFunction(b) && b
                     };
                     f.duration = c.fx.off ? 0 : typeof f.duration ===
-                    "number" ? f.duration : c.fx.speeds[f.duration] || c.fx.speeds._default;
+                        "number" ? f.duration : c.fx.speeds[f.duration] || c.fx.speeds._default;
                     f.old = f.complete;
                     f.complete = function () {
                         f.queue !== false && c(this).dequeue();
@@ -2865,11 +2892,11 @@
                 tick: function () {
                     for (var a = c.timers, b = 0; b < a.length; b++) a[b]() || a.splice(b--, 1);
                     a.length ||
-                    c.fx.stop()
+                        c.fx.stop()
                 }, stop: function () {
                     clearInterval(W);
                     W = null
-                }, speeds: {slow: 600, fast: 200, _default: 400}, step: {
+                }, speeds: { slow: 600, fast: 200, _default: 400 }, step: {
                     opacity: function (a) {
                         c.style(a.elem, "opacity", a.now)
                     }, _default: function (a) {
@@ -2938,7 +2965,7 @@
                         k += Math.max(i.scrollTop, o.scrollTop);
                         n += Math.max(i.scrollLeft, o.scrollLeft)
                     }
-                    return {top: k, left: n}
+                    return { top: k, left: n }
                 };
             c.offset = {
                 initialize: function () {
@@ -2978,14 +3005,14 @@
                         b += parseFloat(c.curCSS(a, "marginTop", true)) || 0;
                         d += parseFloat(c.curCSS(a, "marginLeft", true)) || 0
                     }
-                    return {top: b, left: d}
+                    return { top: b, left: d }
                 }, setOffset: function (a, b, d) {
                     if (/static/.test(c.curCSS(a, "position"))) a.style.position = "relative";
                     var f = c(a), e = f.offset(), j = parseInt(c.curCSS(a, "top", true), 10) || 0,
                         i = parseInt(c.curCSS(a, "left", true), 10) || 0;
                     if (c.isFunction(b)) b = b.call(a,
                         d, e);
-                    d = {top: b.top - e.top + j, left: b.left - e.left + i};
+                    d = { top: b.top - e.top + j, left: b.left - e.left + i };
                     "using" in b ? b.using.call(a, d) : f.css(d)
                 }
             };
@@ -2993,7 +3020,7 @@
                 position: function () {
                     if (!this[0]) return null;
                     var a = this[0], b = this.offsetParent(), d = this.offset(),
-                        f = /^body|html$/i.test(b[0].nodeName) ? {top: 0, left: 0} : b.offset();
+                        f = /^body|html$/i.test(b[0].nodeName) ? { top: 0, left: 0 } : b.offset();
                     d.top -= parseFloat(c.curCSS(a, "marginTop", true)) || 0;
                     d.left -= parseFloat(c.curCSS(a, "marginLeft", true)) || 0;
                     f.top += parseFloat(c.curCSS(b[0], "borderTopWidth", true)) || 0;
@@ -3036,7 +3063,7 @@
                         i[d](f.call(this, j, i[d]()))
                     });
                     return "scrollTo" in
-                    e && e.document ? e.document.compatMode === "CSS1Compat" && e.document.documentElement["client" + b] || e.document.body["client" + b] : e.nodeType === 9 ? Math.max(e.documentElement["client" + b], e.body["scroll" + b], e.documentElement["scroll" + b], e.body["offset" + b], e.documentElement["offset" + b]) : f === w ? c.css(e, d) : this.css(d, typeof f === "string" ? f : f + "px")
+                        e && e.document ? e.document.compatMode === "CSS1Compat" && e.document.documentElement["client" + b] || e.document.body["client" + b] : e.nodeType === 9 ? Math.max(e.documentElement["client" + b], e.body["scroll" + b], e.documentElement["scroll" + b], e.body["offset" + b], e.documentElement["offset" + b]) : f === w ? c.css(e, d) : this.css(d, typeof f === "string" ? f : f + "px")
                 }
             });
             A.jQuery = A.$ = c
@@ -3174,13 +3201,13 @@
             }
         };
         Garden.options = {
-            petalCount: {min: 8, max: 15},
-            petalStretch: {min: 0.1, max: 3},
-            growFactor: {min: 0.1, max: 1},
-            bloomRadius: {min: 8, max: 10},
+            petalCount: { min: 8, max: 15 },
+            petalStretch: { min: 0.1, max: 3 },
+            growFactor: { min: 0.1, max: 1 },
+            bloomRadius: { min: 8, max: 10 },
             density: 10,
             growSpeed: 1000 / 60,
-            color: {rmin: 128, rmax: 255, gmin: 0, gmax: 128, bmin: 0, bmax: 128, opacity: 0.1},
+            color: { rmin: 128, rmax: 255, gmin: 0, gmax: 128, bmin: 0, bmax: 128, opacity: 0.1 },
             tanAngle: 60
         };
         Garden.random = function (b, a) {
@@ -3326,6 +3353,9 @@
             $("#messages").fadeIn(5000, function () {
                 showLoveU()
             })
+            $("#photo").fadeIn(5000, function () {
+                showLoveU()
+            })
         }
 
         function adjustWordsPosition() {
@@ -3343,83 +3373,88 @@
         };
     </script>
 </head>
+
 <body>
-<!--背景-->
-<canvas id="sakura" style=" position: absolute ;z-index: 1"></canvas>
-<div style="position: absolute ;z-index: 9999" id="mainDiv">
-    <div id="content">
-        <div id="code">
-            <span class="comments">我的爱人</span><br/>
-            <span class="space"/><span class="comments">我会牵着你的手，走到我们满头白发的那一天</span><br/>
-            <span class="space"/><span class="comments">我会守护你生命里的精彩，并陪伴你一路精彩下去。</span><br/>
-            <span class="space"/><span class="comments">你的幸福快乐，是我一生的追求。</span><br/>
-            <span class="space"/>我会每一天带着笑脸，和你说早安，<br/>
-            <span class="space"/>我会每一晚与你道声晚安再入梦乡，<br/>
-            <span class="space"/>我会带你去所有你想去的地方，<br/>
-            <span class="space"/>陪你闹看你笑<br/>
-            <span class="space"/>历经你生命中所有的点点滴滴。<br/>
-            <span class="space"/>我期待这一生与你一起走过，<br/>
-            <span class="space"/>走到尽头再回头看尽一生铅华满地，<br/>
-            <span class="space"/>我期待与你慢慢变老，<br/>
-            <span class="space"/>等我们老到哪儿也去不了，<br/>
-            <span class="space"/>还能满载着一生的幸福快乐。<br/>
-            <span class="keyword">我愿意爱你直到老去，<br/>
-			<span class="space"/>我会为我们的未来撑起一片天空，<br/>
-			<span class="space"/>为我们的将来担负起一生的责任，<br/>
-			<span class="space"/>愿意为你去做每一件能让你开心快乐的事。<br/>
-			<span class="space"/>所有我们经历的点点滴滴，<br/>都是我们一辈子最美的回忆。</span> <br/>
-            <br/>
-        </div>
-        <div id="loveHeart">
-            <canvas id="garden"></canvas>
-            <div id="words">
-                <div id="messages">
-                    XXX,I LOVE YOU！
-                    <div id="elapseClock"></div>
-                </div>
-                <div id="loveu">
-                    Love u forever and ever.<br/>
-                    <div class="signature">- LXJ</div>
+    <!--背景-->
+    <canvas id="sakura" style=" position: absolute ;z-index: 1"></canvas>
+    <div style="position: absolute ;z-index: 9999" id="mainDiv">
+        <div id="content">
+            <div id="code">
+                <span class="comments">我的爱人</span><br />
+                <span class="space" /><span class="comments">我会牵着你的手，走到我们满头白发的那一天</span><br />
+                <span class="space" /><span class="comments">我会守护你生命里的精彩，并陪伴你一路精彩下去。</span><br />
+                <span class="space" /><span class="comments">你的幸福快乐，是我一生的追求。</span><br />
+                <span class="space" />我会每一天带着笑脸，和你说早安，<br />
+                <span class="space" />我会每一晚与你道声晚安再入梦乡，<br />
+                <span class="space" />我会带你去所有你想去的地方，<br />
+                <span class="space" />陪你闹看你笑<br />
+                <span class="space" />历经你生命中所有的点点滴滴。<br />
+                <span class="space" />我期待这一生与你一起走过，<br />
+                <span class="space" />走到尽头再回头看尽一生铅华满地，<br />
+                <span class="space" />我期待与你慢慢变老，<br />
+                <span class="space" />等我们老到哪儿也去不了，<br />
+                <span class="space" />还能满载着一生的幸福快乐。<br />
+                <span class="keyword">我愿意爱你直到老去，<br />
+                    <span class="space" />我会为我们的未来撑起一片天空，<br />
+                    <span class="space" />为我们的将来担负起一生的责任，<br />
+                    <span class="space" />愿意为你去做每一件能让你开心快乐的事。<br />
+                    <span class="space" />所有我们经历的点点滴滴，<br />都是我们一辈子最美的回忆。</span> <br />
+                <br />
+            </div>
+            <div id="loveHeart">
+                <canvas id="garden"></canvas>
+                <div id="words">
+                    <div id="messages">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CC专属！
+                        <!-- <div id="elapseClock"></div> -->
+                        <img style="width:30%;position:absolute;" src="https://s3.bmp.ovh/imgs/2022/04/03/adea534640744bf3.jpeg" alt="">
+                    </div>
+                    <div id="photo"> 
+                    </div>
+                    <div id="loveu">
+                        Love u forever and ever.<br />
+                        <!-- <div class="signature">- LXJ</div> -->
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="top" class="wall">
-            <iframe src='http://www.kugou.com/song/m11brac.html?frombaidu?frombaidu' display="none" width='0' height='0' frameborder='0' name="_blank" id="_blank" balance="10000" ></iframe>
+            <div id="top" class="wall">
+                <iframe src='http://www.kugou.com/song/m11brac.html?frombaidu?frombaidu' display="none" width='0'
+                    height='0' frameborder='0' name="_blank" id="_blank" balance="10000"></iframe>
+            </div>
         </div>
     </div>
-</div>
-<script type="text/javascript">
-    var offsetX = $("#loveHeart").width() / 2;
-    var offsetY = $("#loveHeart").height() / 2 - 55;
-    var together = new Date();
-    together.setFullYear(2017, 1, 25);
-    together.setHours(0);
-    together.setMinutes(0);
-    together.setSeconds(0);
-    together.setMilliseconds(0);
+    <script type="text/javascript">
+        var offsetX = $("#loveHeart").width() / 2;
+        var offsetY = $("#loveHeart").height() / 2 - 55;
+        var together = new Date();
+        together.setFullYear(2017, 1, 25);
+        together.setHours(0);
+        together.setMinutes(0);
+        together.setSeconds(0);
+        together.setMilliseconds(0);
 
-    if (!document.createElement('canvas').getContext) {
-        var msg = document.createElement("div");
-        msg.id = "errorMsg";
-        msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
-        document.body.appendChild(msg);
-        $("#code").css("display", "none")
-        $("#copyright").css("position", "absolute");
-        $("#copyright").css("bottom", "10px");
-        document.execCommand("stop");
-    } else {
-        setTimeout(function () {
-            startHeartAnimation();
-        }, 5000);
-        timeElapse(together);
-        setInterval(function () {
+        if (!document.createElement('canvas').getContext) {
+            var msg = document.createElement("div");
+            msg.id = "errorMsg";
+            msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+            document.body.appendChild(msg);
+            $("#code").css("display", "none")
+            $("#copyright").css("position", "absolute");
+            $("#copyright").css("bottom", "10px");
+            document.execCommand("stop");
+        } else {
+            setTimeout(function () {
+                startHeartAnimation();
+            }, 5000);
             timeElapse(together);
-        }, 500);
-        adjustCodePosition();
-        $("#code").typewriter();
-    }
-</script>
-<script id="sakura_point_vsh" type="x-shader/x_vertex">
+            setInterval(function () {
+                timeElapse(together);
+            }, 500);
+            adjustCodePosition();
+            $("#code").typewriter();
+        }
+    </script>
+    <script id="sakura_point_vsh" type="x-shader/x_vertex">
 uniform mat4 uProjection;
 uniform mat4 uModelview;
 uniform vec3 uResolution;
@@ -3502,7 +3537,7 @@ void main(void) {
 
 
 </script>
-<script id="sakura_point_fsh" type="x-shader/x_fragment">
+    <script id="sakura_point_fsh" type="x-shader/x_fragment">
 #ifdef GL_ES
 //precision mediump float;
 precision highp float;
@@ -3559,7 +3594,7 @@ void main(void) {
     gl_FragColor = vec4(col * 0.5, alpha);
 }
 </script>
-<script id="fx_common_vsh" type="x-shader/x_vertex">
+    <script id="fx_common_vsh" type="x-shader/x_vertex">
 uniform vec3 uResolution;
 attribute vec2 aPosition;
 varying vec2 texCoord;
@@ -3570,7 +3605,7 @@ void main(void) {
     screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
 }
 </script>
-<script id="bg_fsh" type="x-shader/x_fragment">
+    <script id="bg_fsh" type="x-shader/x_fragment">
 #ifdef GL_ES
 //precision mediump float;
 precision highp float;
@@ -3587,7 +3622,7 @@ void main(void) {
     gl_FragColor = vec4(col * 0.5, 1.0);
 }
 </script>
-<script id="fx_brightbuf_fsh" type="x-shader/x_fragment">
+    <script id="fx_brightbuf_fsh" type="x-shader/x_fragment">
 #ifdef GL_ES
 //precision mediump float;
 precision highp float;
@@ -3601,7 +3636,7 @@ void main(void) {
     gl_FragColor = vec4(col.rgb * 2.0 - vec3(0.5), 1.0);
 }
 </script>
-<script id="fx_dirblur_r4_fsh" type="x-shader/x_fragment">
+    <script id="fx_dirblur_r4_fsh" type="x-shader/x_fragment">
 #ifdef GL_ES
 //precision mediump float;
 precision highp float;
@@ -3620,7 +3655,7 @@ void main(void) {
     gl_FragColor = col / 5.0;
 }
 </script>
-<script id="fx_common_fsh" type="x-shader/x_fragment">
+    <script id="fx_common_fsh" type="x-shader/x_fragment">
 #ifdef GL_ES
 //precision mediump float;
 precision highp float;
@@ -3633,7 +3668,7 @@ void main(void) {
     gl_FragColor = texture2D(uSrc, texCoord);
 }
 </script>
-<script id="pp_final_vsh" type="x-shader/x_vertex">
+    <script id="pp_final_vsh" type="x-shader/x_vertex">
 uniform vec3 uResolution;
 attribute vec2 aPosition;
 varying vec2 texCoord;
@@ -3644,7 +3679,7 @@ void main(void) {
     screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
 }
 </script>
-<script id="pp_final_fsh" type="x-shader/x_fragment">
+    <script id="pp_final_fsh" type="x-shader/x_fragment">
 #ifdef GL_ES
 //precision mediump float;
 precision highp float;
@@ -3671,7 +3706,7 @@ void main(void) {
     var Vector3 = {};
     var Matrix44 = {};
     Vector3.create = function (x, y, z) {
-        return {'x': x, 'y': y, 'z': z};
+        return { 'x': x, 'y': y, 'z': z };
     };
     Vector3.dot = function (v0, v1) {
         return v0.x * v1.x + v0.y * v1.y + v0.z * v1.z;
@@ -3928,7 +3963,7 @@ void main(void) {
     function createPointFlowers() {
         // get point sizes
         var prm = gl.getParameter(gl.ALIASED_POINT_SIZE_RANGE);
-        renderSpec.pointSize = {'min': prm[0], 'max': prm[1]};
+        renderSpec.pointSize = { 'min': prm[0], 'max': prm[1] };
         var vtxsrc = document.getElementById("sakura_point_vsh").textContent;
         var frgsrc = document.getElementById("sakura_point_fsh").textContent;
         pointFlower.program = createShader(
@@ -4357,4 +4392,5 @@ void main(void) {
     })(window, 'equestAnimationFrame');
 </script>
 </body>
+
 </html>
